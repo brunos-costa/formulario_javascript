@@ -23,3 +23,25 @@ let leitura = document.querySelector("input[readonly]")
 endereco.addEventListener("keyup",function(){
     leitura.value = endereco.value
 })
+
+/* VALIDAR EMAIL */
+let email = document.querySelector("#email")
+let msgEmail = document.querySelector("#validaEmail")
+
+// Estou trabalhando com arrow function
+email.addEventListener('keyup',()=>{
+    let minusculo = email.value.toLowerCase()// Convertendo o texto em minúsculo
+
+    if(minusculo.indexOf('@') == -1 || minusculo.indexOf(".com")==-1 ){
+        //console.log("Email Inválido")
+        msgEmail.textContent = "Este email é inválido"
+        msgEmail.classList.remove("text-success")
+        msgEmail.classList.add("text-danger")
+    }
+    else{
+        //console.log("Email Válido")
+        msgEmail.textContent = "Email válido"
+        msgEmail.classList.remove("text-danger")
+        msgEmail.classList.add("text-success")
+    }
+})
